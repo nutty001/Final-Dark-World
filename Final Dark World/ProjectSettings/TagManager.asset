@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Bounds
   - Enemy
+  - Ladder
+  - Checkpoints
+  - Ladders
+  - End1
+  - End2
+  - End3
+  - End4
+  - End5
+  - End6
+  - Coin
   layers:
   - Default
   - TransparentFX
