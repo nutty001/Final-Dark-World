@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpforce = 10f;
     public bool onMovingPlatform = false;
     public bool active = true;
- //   [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource jumpSoundEffect;
 
     // public Joystick joystick;
     bool jump = false;
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
          if(IsGrounded() && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x,jumpforce);
-//            jumpSoundEffect.Play();
+            jumpSoundEffect.Play();
         } 
         }
 

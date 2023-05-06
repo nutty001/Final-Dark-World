@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject Canvas;
-
     void Awake()
     {
-         Canvas.SetActive(true);
+        Canvas.SetActive(true);
     }
     public void PlayGame()
     {
-       Canvas.SetActive(false);
+        Canvas.SetActive(false);
     }
 
     public void QuitGame()

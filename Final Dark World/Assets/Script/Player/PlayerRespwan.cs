@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRespwan : MonoBehaviour
 {
+    public GameObject Canvas;
     public bool active = true;
     public Vector2 respawnPoint;
     public bool respawning = false;
@@ -14,11 +15,12 @@ public class PlayerRespwan : MonoBehaviour
     [SerializeField] private float startinghealth;
     public float currentHealth {get; private set; }
     private Animator anim;
-//    [SerializeField] private AudioSource PlayerDeath;
+    [SerializeField] private AudioSource PlayerDeath;
        void Awake()
     {
         respawnPoint = transform.position;   
         anim = GetComponent<Animator>();
+        Canvas.SetActive(false);
     }
       void Start()
     {
@@ -44,8 +46,10 @@ public class PlayerRespwan : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
       //  anim.SetTrigger("hurt");
       //  anim.SetTrigger("die");
-      //  PlayerDeath.Play();
-        StartCoroutine(WaitForSceneLoad());
+        PlayerDeath.Play();
+        Canvas.SetActive(false);
+
+       // StartCoroutine(WaitForSceneLoad());
         respawning = false;
     }
 
@@ -55,9 +59,9 @@ public class PlayerRespwan : MonoBehaviour
        GetComponent<PlayerMovement>().enabled = true;
     }
 
-     private IEnumerator WaitForSceneLoad() 
-     {
-     yield return new WaitForSeconds(2);
-     SceneManager.LoadScene("Game_Over"); 
-     }
+    //  private IEnumerator WaitForSceneLoad() 
+    //  {
+    //  yield return new WaitForSeconds(2);
+    //  SceneManager.LoadScene("Game_Over"); 
+    //  }
 }
